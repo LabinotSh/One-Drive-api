@@ -1,0 +1,63 @@
+{
+  "name": "one-drive-api",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "webpack-dev-server --config config/webpack.dev.js --open",
+    "build": "webpack --config config/webpack.prod.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/LabinotSh/One-Drive-api.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/LabinotSh/One-Drive-api/issues"
+  },
+  "homepage": "https://github.com/LabinotSh/One-Drive-api#readme",
+  "dependencies": {
+    "@babel/polyfill": "^7.7.0",
+    "@chilkat/ck-node11-win64": "^9.50.80",
+    "aws-sdk": "^2.592.0",
+    "casual": "^1.6.2",
+    "cls-bluebird": "^2.1.0",
+    "core-js": "^3.1.4",
+    "cx": "^19.12.1",
+    "cx-react": "^17.10.0",
+    "cx-theme-material": "^18.7.0",
+    "express": "^4.17.1",
+    "moment": "^2.24.0",
+    "onedrive-api": "^0.3.3",
+    "react": "^16.12.0",
+    "react-cx": "^0.1.12",
+    "react-dom": "^16.12.0",
+    "regenerator-runtime": "^0.13.2",
+    "type": "^2.0.0",
+    "whatwg-fetch": "^3.0.0"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.7.7",
+    "@babel/core": "^7.7.7",
+    "@babel/preset-env": "^7.7.7",
+    "babel-core": "^6.26.3",
+    "babel-loader": "^8.0.5",
+    "babel-preset-cx-env": "^19.1.0",
+    "copy-webpack-plugin": "^5.0.3",
+    "css-loader": "^3.0.0",
+    "file-loader": "^4.0.0",
+    "html-webpack-plugin": "^3.2.0",
+    "inline-manifest-webpack-plugin": "^4.0.0",
+    "json-loader": "^0.5.4",
+    "mini-css-extract-plugin": "^0.7.0",
+    "node-sass": "^4.13.0",
+    "sass-loader": "^7.0.1",
+    "style-loader": "^0.23.1",
+    "webpack": "^4.20.2",
+    "webpack-cli": "^3.1.1",
+    "webpack-dev-server": "^3.1.4",
+    "webpack-merge": "^4.1.0"
+  }
+}
