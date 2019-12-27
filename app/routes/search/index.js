@@ -58,7 +58,23 @@ export default (
                     pageSize="10"
                     style={{ width: "100%" }}
                     columns={[
-                        { header: 'Icon', field: 'icon', sortable: true, resizable: true },
+                        { header: 'Icon', sortable: true, field: "icon",
+                        // items: (
+                        //     <cx>
+                        //         <i class={computable(("$record.icon"),
+                        //             (text) => {
+                        //                 switch (text) {
+                        //                     case 'pdf':
+                        //                         return "far fa-file-pdf";
+                        //                     case '.docx':
+                        //                         return "far fa-file-word";
+                        //                     default:
+                        //                         return "far fa-file-word";
+                        //                 }
+                        //             })} />
+                        //     </cx>
+                        // ) 
+                        }, 
                         { header: 'Document', field: 'document', sortable: true, resizable: true },
                         { header: 'Folder', field: 'folder', sortable: true, resizable: true },
                         { header: 'User', field: 'user', sortable: true, resizable: true },
