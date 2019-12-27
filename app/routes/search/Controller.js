@@ -4,7 +4,7 @@ import moment from "moment";
 var oneDriveAPI = require('onedrive-api');
 
 
-var accessToken = "EwCIA8l6BAAUO9chh8cJscQLmU+LSWpbnr0vmwwAAQ4D5/OP7ghXATaRzENxz3gLsjJNzoN/7tEGTLuDUcNLwTe5MZ0rr5Xxp9xjRGpbYz1HUNG5ZubfXUyVPcJhVBJs9L3bfq5HWIymN/+aYHaq5QW9aL59Ut87Xt8EnexDwRId8GvuPg0PPJfDw7rLMWB7GK/InDQdP91IRI/od0SsNdLgttcF+i2F2F3k51pw/l59roDgBZaW5a7JczyWfqNo/TKguCkOAJFJePhEc24uIo4srnkDmY9ZSJEEkOc7oRgHz+iGoVwpYgELnioP9+6rg1kwL5roXxg5aOXYp9SsVkPYQhOB0bHJqBF/3TB4R2VZWoA657k0f/cTMXh50TYDZgAACPQXGhaMPauvWAL3KRXtd/KuoCbvCnDFOx3WA3diOE40g1Bhkk4VHPGtjyJkX8GDVm9BmIY3V2gVOgDT3CFKvtgelyH8W8kU3brUaqUvJp4S8/lClY++MmIEPXG0z/nTTAIFpb9jEfNdVDvjYSA2pficujjBZOxaTg6CFMu1m0lN867HWAkgJHYqZgzXvYg2CitlaAHvUuu/tDdn9ktcaTnXxoRVwT0DPeqan4vmdhSPGFc0KFMIzW17tnj2vYF7ph+5m3kzXAWKJNzM2mbNUxIy6MPtP6syVeedoimp0g1fThQQBfOy8gOz1ogHigJ9i/mDGbZnXo1CxaJmRWsXBqnsyrCbMaOxjc339UDFc5GJUKe9NVvgpkXDJJK5nk6tjQxqkvlfKYcsXe56bNwThp8+viQpMTxP0OyM0hLA+Qhv5GI+TGUrK7Bh33TZft/5ObxAS56wqksMt8nx+OSiq351Vtsdvv6B7LZlWKtUrS4v3l0CdKqvGtAZ63Icu+7JOxVOYV/ty+QbxwGdRHbEGmY9qBIqFTivFVnrkMsHbCDGomGJz8umP35IN7yXf9QjN21lTNLYlKYVdMiuQ5UfewB/TUKmJzTdtV5Mub0OiQrbKAiUXEv2Z/hERrN1vqZRLchQJ8Y3fn83WdDST9X1j9mXCZSF9QDB87ZblU9dhLK2qL0BQEBw1kZwI6JpmZdojCwKkW5BxuH03V7FBB+mQK/hF3elDTQOF15JRls93qoKQl2M/FyVXHh5vrZQWVhyIMmZC0o1EaH6UuqlNz42Iex/QzHFmwGTMToGE2NjpADncnGkAg==";
+var accessToken = "EwCQA8l6BAAUO9chh8cJscQLmU+LSWpbnr0vmwwAAUW6zyPksvLVKrmYfhA99HrMIBGAdbp0qFtVbA/lrK3B3vTR2idEKDHZcHb2UqqKp5qHoki0utDa3Vie8J8rhj7r9iVw3MESuKU6hUtV/H+N4/OInThYZxVo2AWaHCQZii9Z8KXzedE69Lw6zIdKcoyZUdpp6c8A5bes/90uSnIWFqr4tdG7dyKD7eXHhTsU592hi7Rb4OjLNaCOsQXjmhlzH0Zl6n9nmaR6WzO8gEbIlQ8n8+10lmEmsIXQ0cizderMf4rR//cLQxLOvQL3pkfgDhbkI6Jm5w1R0pUQSc0ockTKI0l1TuUBY1k8IhE4CMIV/bH1ogVmc7IKKDGeIxUDZgAACHkd4Tr/VSfiYAKtYpz2fGLjmkzUAh6Jk5IX0/UPQvfOTs2wa2M0JZ3HwQP6kJkE1L7+r5iuY945Vlqto/QsaNvDv/qNfuq6o8NQ4vPFsbD/jIv7Zh3Py0Svk1/kd3Ob0zcl4cNW0DAI7Nx9NfVBeMxQH/7FuT/H490NYcBtOcuY7bd63dcwuEkKtsZ/x1eGRz4KBbpZUBG+Wg7SYktKv+XATNrRJV8lPKkWAHLikHQSjSfCLclWzBtvM9IueyMxzt6YQbFo5XkBCwEVMxJEcYZMvtP9vYcIv4upCH/FnUy9mFs3qOPoCSGRnqG30CPcU9k0o8dianzxVPbKFCufw/7RITk05QOlcsUE70sB66DQwYBkU4EgRsT1/bDLjY7rIHunp64bUnsXtsHHKfJbpM03dNeh/e8XBMXcV+v12x8RrrBJ8bRNWel94BBp2af1FF6nZ+0/FdTblTHgaU30RpdjgvR9sogiUVwLRatqMaWuOmEFey0jk83D3zex9UVFDDutLKpvowKNie/sVBJL+IgCAn95x4U8k3IEOUEjyew9o5Yz0IjAfXImymfGeTrGh2sFY5CZ5WLc9Wipmkgk85hl3UBnhb/7PCjpz6X9vgna4nSQlczZlU4AE3XvD9sLk8urF7b3dDpdbSXwY0Ku3fG8lCc3IbsMMzSWevXFTV2F68pc+ooQi4Dg9rukLT8Fnp4OhQLbtsSlNkx2yCUBK/4zyaveC13T4iQLvrYdhUMnSGZjo5XvXvGYa2TkrJwQLFaHr1Wl8R/Ec36uBBfmmeTzQb/qnoyIhYQP/gPtTIZX5w4oebL5O9CHtKQC";
 
 export default class SearchController extends Controller {
    init() {
@@ -33,7 +33,7 @@ export default class SearchController extends Controller {
          //console.log(child[4].hasOwnProperty("file"));
          this.store.set('$page.records', child.map((item, i) => ({
             id: i++,
-            icon:"P",
+            icon: item.name,
             document: item.name,
             folder: item.parentReference.path,
             user: item.createdBy.user.displayName,
@@ -70,7 +70,7 @@ export default class SearchController extends Controller {
       }).then((childrens) => {
          let child = childrens.value
          .filter(this.onFilter)
-         .filter(x => x.name.match(desc/*.trim()*/));
+         .filter(x => x.name.match(desc.trim()));
          console.log(child);
          this.store.set('$page.records', child.map((item, i) => ({
             id: item.id,

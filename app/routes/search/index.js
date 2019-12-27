@@ -1,6 +1,6 @@
 import { HtmlElement, TextField, Button, Grid, Pagination, Select, Icon } from "cx/widgets";
 import { LookupField } from 'cx/widgets';
-import { LabelsLeftLayout, LabelsTopLayout } from 'cx/ui';
+import { LabelsLeftLayout, LabelsTopLayout, computable } from 'cx/ui';
 import SearchController from "./Controller";
 
 
@@ -15,8 +15,7 @@ export default (
                     style={{ marginLeft: "1rem" }}
                     records-bind="$page.optionsuser"
                     options-bind="$page.optionsus"
-                    multiple
-                    icon="pencil" />
+                    multiple />
 
                 <label style={{ float: "right" }}>
                     <TextField value-bind="$page.desc" label="Description" style={{ width: '380px' }} />
@@ -48,7 +47,6 @@ export default (
             <div style={{ float: "right", marginBottom: "1rem", marginRight: "7rem" }}>
                 <Button mod="primary">Export as zip</Button>
                 <Button mod="primary" onClick="onLastModified" style={{ marginLeft: "1.5rem" }}>Modify</Button>
-                <Icon name="calendar" />
             </div>
 
             <div style={{ padding: "1rem" }}>
@@ -58,22 +56,38 @@ export default (
                     pageSize="10"
                     style={{ width: "100%" }}
                     columns={[
-                        { header: 'Icon', sortable: true, field: "icon",
-                        // items: (
-                        //     <cx>
-                        //         <i class={computable(("$record.icon"),
-                        //             (text) => {
-                        //                 switch (text) {
-                        //                     case 'pdf':
-                        //                         return "far fa-file-pdf";
-                        //                     case '.docx':
-                        //                         return "far fa-file-word";
-                        //                     default:
-                        //                         return "far fa-file-word";
-                        //                 }
-                        //             })} />
-                        //     </cx>
-                        // ) 
+                        { header: 'Icon',
+                          sortable: true, 
+                          field: "icon",
+                          items: (
+                            <cx>
+                                <i class={computable("$record.icon",
+                                    (text) => {
+                                        let tt = text.split(".");
+                                        console.log(tt)
+                                        switch (tt[1]) {
+                                            case 'pdf':
+                                                return "far fa-file-pdf";
+                                            case 'docx':
+                                                return "far fa-file-word";
+                                            case 'pptx':
+                                                return "far fa-file-powerpoint";
+                                            case 'jpg':
+                                                return "far fa-file-image";
+                                            case 'img':
+                                                return "far fa-file-word";
+                                            case 'xlsx':
+                                                return "far fa-file-excel";
+                                            case 'img':
+                                                return "far fa-file-image";
+                                            case 'csv':
+                                                return "far fa-file-csv";
+                                            default:
+                                                return "far fa-file-image";
+                                        }
+                                    })} />
+                            </cx>
+                        ) 
                         }, 
                         { header: 'Document', field: 'document', sortable: true, resizable: true },
                         { header: 'Folder', field: 'folder', sortable: true, resizable: true },
