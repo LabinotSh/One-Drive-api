@@ -3,7 +3,7 @@ var oneDriveAPI = require('onedrive-api');
 
 
 
-const accessToken = "EwCIA8l6BAAUO9chh8cJscQLmU+LSWpbnr0vmwwAAREZU+y6VPUBPCzFcyq3KTXCtgMocRxV1RpYYMPWV7Fl+FSKv5eeqkIfntMw74f1/ibpIlM+QFOyYsYDxdYtuz9GRdut1kquMc0LbjefyudJBMAtlWUFfd6HatUNcasHFoz4CGDIaZw4vnKY/rXtRYiXSnOO6CKL4CQZ2+khjX6nEnGfhrc74SxBxRpMYb1ToP0B0+62NBWxuuMtTWUNE2e9RygCVlOimT/WUUJMTdh877qMMfNw0P3DzPvoaz34OmYvIOH1/h+TPC2zNmkAj1mei6AQ5wAtIulHpEiIVWNP8SyMRjz2wvUgd95D+GKeNntAoQi1wrWaf7zsKJHhlz4DZgAACMGtvnAH/zohWAI+Usj8ssYWs1Ts+C5A7Mqix/4DTE/0ALMnDohRA3hdfGx6T+Q18uQrqGWfqPfHOfRL9NtQmvJs/x+Yw5GWRgZ0OxzW0k4vpND0H3H3D6oxZWuG46HtjC1Yhr8cr22iCb3/lhrqlpSPRs6wrugK3K8yOYusvmWMqRsLlAEZkwX+qkxa81IookneDYVzPeMZO/BEco1JyAbhKx9G7+2ZG7EC0i8gtkH4RZi/VW50SmKyqb6MG17aeyWg1GvjMOCLsJ86xsickxOwqqjkPWKxxUEKgcKTbUIw92iL6HJqeoJj+3Wff54LgJKh0G3PHgITbPEsgtrcFaDi8uSk8/8UThD3lwGBPhFwz4t3+RTobjOMeh/OyqFr0ni7Var5+1Ut3vMo2PPh+XziHvFkqjzpuB8j3WdMUpbQHYXpUsR5T9Cl3186sGFwvaNhGdzijggabq6WYusOtqRgJJFvvjoCtA2A9kjkW3M21zauMPJj66GyG25SfyLzyxDdZZ/k2UlDJ1BDIM37tZ9Fxq+wpRh/DE76O2wSE1JOaTNUEy0znyBpWK9bxpNWBhCS/HkRK+Tt478d2tWq50w/xXYuy/bBZQmt/PI+R3b09AkjU9zqKtrBxQRGPjzsCE1UNyQ7VLaV8qhzzd9bLToxDjvj04CnzLULmeTKGSfAZnQw2+PkqXV+757Iq6eEykKYphjUrpoxEC7JnVC1KEwPWB0vmWrVxejAA3skKeuvM3NLePklz2AyNSmUnOz1gRGciOBhbMxmY7rwBY1NlAVp46YwPLhIlor+cEx3RbIavdmkAg==";
+const accessToken = "EwCQA8l6BAAUO9chh8cJscQLmU+LSWpbnr0vmwwAAVEiNZtpjayGvwD2/bknr+ClJUKU6esoDA31O0L08lx9YJmwClLgHZwJ1eqUodwYbp2+iViBvjpoLq53MPYYy5GdJwRJRY9XGsHBJWsVvT6GTBbGU9mqQ9vkbp6w3tb32yaOxoGOUg4V0iftd3sG/KYjovGX/FxvFg6RT85kysXsYvjvVyYwbtXtp8uEORvupWOcgcDBHDHTCl7+TjhJp6MQVA6nzzP5X3uwy03YDsKIg8EDf9Zs5791bLIIN2GYs15ZncBKpsCr/AL/La/eWCrCJ1e/CeJlYkn876GPVD1JkmbWMTtufo44QzMKaugBBtAdLCvCMKSkwGAXwGHCYAwDZgAACAdsdjHqse52YAJX33PEo1gUuaW9uig4DZwso9IPIf/VAE1f4ZW/a4m0hbdmDfOB+GEoasFTMA9RRT8lwIkIb1NVFoDkgu86sgOPo0NeHMCUD4DLDrwpBbTre8H87WuHWFhLfPi2nKmyWy5aCRzJ0g5oesfk3BklUvqHibd0tIKi444wCVebcniAabB7kXs4X5qJk1L+SikGuS3cvo4bDY59hhfR7qeonc+KgDiOx6QlBYZVQYYjxztvq7yuMrYkvx3iyER4WAEfWv5wnwhEZduI+WeuVz0QlncJ0xigGrOk+MWXVLrL9nraFwt76URMpb0pjPcqu7/ao0p49IhQEgow3tVakDjcoa3eDtXrGva7BDNzS/zXgSuzflrn66ShLKgfekWUVaczxFJJYzXdYaI63Kz69KrWkYRyjjknUmLo+TdyOK3BreeXEiKfbaaoGfDTTGazVF3kUWHbtzbniydoWU38hKk7bvlVE3B/ezxt+nZ5R39afAa4YNz2lfvvegYkETxIyvzOv0m6Om4PXpXS4uT6mek3TQGz053AlHx8mk+exSjNGUbltqVcTyoOdOm2dJjsZA37m+Rkd45LkZ+e1FTg1q2IRGW8MP4ziVJKuTgk+D4KqTpp81LILlAnSJGnhWqTvwnDUF40Qkf1CcgTULqQjZapTzO684Swy6Y2fsM2yt0QHGBJVWe4mcUoDAKGkPberYSfvHrIY9IVchUWF+8wF+zkU0V6pOMNDLsDfFTjC20we0PFMdQEYSsGxaLEu+b4oDlDrcgh5M5RxdPoSeOXlReHJZZCjaiSPRj42bDrj48/lJcrjaQC";
 //oneDriveAPI.items.createFolder({
    //accessToken: "EwCIA8l6BAAUO9chh8cJscQLmU+LSWpbnr0vmwwAAecEKB/EcaM8J/slDLfXF7PhD0ItjDHUi26uf9ucAgYtgHih7K7xSxpAlkafxZ+O0HN6yMc79xRggwwBA0UTt4TGdm/qp19Vm/ltFDle8zsWKMc7jd/sA5Gi4dNDnbmbNt+dgDJubIJOdXhO/ZVqFQcrcGu4MoyMhJ3HXpMS87KacFgP1+3USj8/I7N7fAtrXvnlZcymnNPuqSmIKa8li0a+t/6reslXXsCrPEwMu2tBxR4SD89E3Bw9a+LU6DUwuYo+daECRkgMKODZGV+rEX1GUaXWeAeCH+CqB7sgpTkR7qggQVZmSpi4JZNgtLmj3B7Llbog56vUJFg6dZP2WDQDZgAACEqk96xH7/R1WAIMdIgr3l1dcDgVz/FqbRWeaRE0i2Y5tmFxPmnMFe8LV+ILXwaj5SJf+rS5P4xlEjhCwT33ljcgCwC044SVjE5uwDRRGDcya4YKcoLs8kZArrIL0TE6E+/cU2gS0nnxbCy2JdntZWXGgFXEloX1synEuvYZveq9v5y6DtdON/HNgGNGkn3DDKGKnGf/B5IOsmglsqNhx1dJs2YNsbVACJR7167xPe7+YQNDlUHEOF86O0aaqUwBpFip6MdtCA5fr9DsgxPZH1CDrz+ngB37E6EaaEVoAHGVP7l1jm74UyNCRtA/wkaKl+j5hyqNoBToTJjDBSJsZ+0jikp5P93BF/zPDEItdCUjgaJfz/J0A03HVtKcI7oPa8aMbxTQp9oKdwPCr9Crgzj7bQzzuAIdYK9A3bP0q/GUsVSXU69rq9d/W1I+k33RTj7tdQAKl8rLSAb/dTJv/SR9i2FM7+aV17Hr41cY3lPZ6k+vhpnU3jo7IJI6O6DpmTXTm9VLc0rFlQNQcLJg1b8cnReCaF11qhP4homG2bdiqbuotyambHqgaS8W8IImZYtOLHYY0/LcQ8wcaTm2413ReGwRqghgFW5ElHVBLHXczLAifFp45eyx1KgKPs6lugknIp6vTJx+FyGQJo+0U6BQ/IOHoWjn5ZXby5BsQcndubOAwuA/cBLzFuibJXpeiuXPWovkxWh0TYiSLZStOAqglciz2XhyEfJkhvSOsdStljgaqhtCkl8Fr2gBt1CL5JlIZPHkIXr40BJArix92Ja/lbHQxZv/eoj4oxUrQHGfNaSkAg==",
     //rootItemId: "root",
@@ -12,28 +12,37 @@ const accessToken = "EwCIA8l6BAAUO9chh8cJscQLmU+LSWpbnr0vmwwAAREZU+y6VPUBPCzFcyq
    //console.log(item)
   // returns body of https://dev.onedrive.com/items/create.htm#response
   //})
-const getChildrens = () => {
+const getChildrens = (itemId) => {
+
+  if(itemId === 'root'){
   oneDriveAPI.items.listChildren({
   accessToken: accessToken,
-  itemId: 'root',
+  itemId: itemId,
   shared: true,
   user: 'sherifilabinot'
 }).then((childrens) => {
 // list all children of dkatavics root directory
 let child = childrens.value;
-
+//console.log(child);
 console.log(child.length);
 console.log(child[3].folder.childCount);
 for(let i=0; i< child.length; i++){
 var filt = onFilter(child[i]);
-var searched  = onSearch(child[i].name,'w');
+//var searched  = onSearch(child[i].name,'w');
 
-//console.log(filt);
-console.log(searched);
+console.log(filt);
+
+
+//console.log(searched);
 // console.log(childrens.value[i].name);
 }
 // returns body of https://dev.onedrive.com/items/list.htm#response
 })
+}else if(itemId !== 'root'){
+  
+   
+}
+
 }
 
 //Working
@@ -61,74 +70,44 @@ console.log(searched);
     }
     }   
 
+function getFolders(obj){
+    
+    if(obj.hasOwnProperty("folder")){
+      //console.log(obj);
+    return /*obj.name + " And id: " +*/obj.id;
+    }else{
+      null;
+    }
+  
+  
+}
 
-
-
-const getChildrenOfFolder = () => {
+const getChildrenOfFolder = (itemId) => {
+  var child;
+  
   oneDriveAPI.items.listChildren({
     accessToken: accessToken,
-    itemId: '369E0F52BC317579!103',
+    itemId: 'root',
     shared: true,
     user: 'sherifilabinot'
   }).then((childrens) => {
   // list all children of dkatavics root directory
-  let child = childrens;
-   console.log(child);
+   child = childrens.value;
+   
+   let ch = child.filter(x => x.hasOwnProperty("folder"))
+    console.log(ch.id);
 })
+
+   //console.log(child);
+   for(let i=0; i< child.length; i++){
+   var chh = getFolders(child[i]); 
+   console.log("AA " + chh);
+   }
+
 };
-//getChildrenOfFolder();
+getChildrenOfFolder();
 
 
-function icon(){
-  oneDriveAPI.items.listChildren({
-     accessToken: accessToken,
-     itemId: 'root',
-     shared: true,
-     user: 'sherifilabinot'
-  }).then((childrens) => {
-
-     let child = childrens.value;
-     console.log(child);
-     
-     for(let i=0; i<child.length; i++){
-       console.log(child[i].name);
-     if(child[i].name.endsWith("pdf")){
-        return "P";
-     }else if(child[i].name.endsWith("docx")){
-        return "W";
-     }else{
-        return "something else";
-     }
-    }
-});
-}
-
-//icon();
-
-
-let child = [
-  {
-      file: "dmth"
-  },
-  {
-      folder: "folderi",
-      file: "file2"
-  },
-  {
-      file: "file2"
-  },
-  {
-      folder: "folder2",
-      file: "file2"
-  }
-].filter(item => {
-  item.file === "dmth"
-});
-//  child.filter(item => {
-//   item.file === "dmth"
-// });
-
-console.log(child);
 
 
 

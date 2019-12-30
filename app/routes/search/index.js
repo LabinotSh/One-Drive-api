@@ -13,9 +13,12 @@ export default (
                  <LookupField
                     label="User"
                     style={{ marginLeft: "1rem" }}
-                    records-bind="$page.optionsuser"
-                    options-bind="$page.optionsus"
-                    multiple />
+                    value-bind="$page.user"
+                    text-bind="$page.user.text"
+                    //records-bind="$page.selectedusers"
+                    options-bind="$page.useroptions"
+                    
+                                         />
 
                 <label style={{ float: "right" }}>
                     <TextField value-bind="$page.desc" label="Description" style={{ width: '380px' }} />
@@ -26,11 +29,14 @@ export default (
             <div style={{ marginBottom: "2rem" }} >
                 <LookupField
                 label="Modified"
-                value-bind="$page.user"
-                text-bind="$page.user.text"
+                value-bind="$page.modified"
+                text-bind="$page.modified.text"
                 options-bind="$page.user0"
                 placeholder="Last 7 Days"
                 style={{width:"130px", marginLeft:"0.5rem"}}
+                computable = {("$page.user.text" 
+                
+                )} 
                 />
 
                 {/* <label>Modified</label>
@@ -46,7 +52,7 @@ export default (
 
             <div style={{ float: "right", marginBottom: "1rem", marginRight: "7rem" }}>
                 <Button mod="primary">Export as zip</Button>
-                <Button mod="primary" onClick="onLastModified" style={{ marginLeft: "1.5rem" }}>Modify</Button>
+                <Button mod="primary" onClick="onLastModified" style={{ marginLeft: "1.5rem" }} onClick="findAll">Modify</Button>
             </div>
 
             <div style={{ padding: "1rem" }}>
@@ -63,9 +69,9 @@ export default (
                             <cx>
                                 <i class={computable("$record.icon",
                                     (text) => {
-                                        let tt = text.split(".");
-                                        console.log(tt)
-                                        switch (tt[1]) {
+                                        let type = text.split(".");
+                                        console.log(type)
+                                        switch (type[1]) {
                                             case 'pdf':
                                                 return "far fa-file-pdf";
                                             case 'docx':
