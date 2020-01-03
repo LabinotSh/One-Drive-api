@@ -6,13 +6,12 @@ import { extendMoment} from 'moment-range';
 const moment = extendMoment(Moment);
 
 var oneDriveAPI = require('onedrive-api');
-var accessToken = "EwCIA8l6BAAUO9chh8cJscQLmU+LSWpbnr0vmwwAASBYoJBbA7K/5CBqCBUX0Mc1t4H81TIHG1UCEQmAhvDI+JfvulpHxXpKOwX8KEQ9kc5nE3sbD8VIKv0qaqyYwUz8PTPdidE9sQgMVSopwyUScQJ7FLAyFUErx3WBJy1ysUH3vK6bj9D6qC7LCuQ16nZZFv82ZE5/4d6AOPeCkTemmnNCzS+J9ve9jtTtTcs8yx+N4aDLV+UbygTTTQx1IU9wKqePhqEVeZvxmhfN5NxB+U424xVcWmwSqaGx5PImsLIC7K63HEmQPeOpzjShZCESQErKGIAMeBJxmjBqetmmfo3UykvmiGWXHYvFJYoUmzdg7rNbeK0mfu7w7iLJqAMDZgAACG71Y2DukzwfWAKr6o0xfJa5YMHDfFUhTGBg92YSJyo/4BAeGQrft6WBlx6nKbXcAqXuHu092AVvlv/JOrmt2d9NZKV289TewuSLyOwcG5IQDR07HHTC+oFFCx9ZI1A1S7b/f2JrmBbbc7iUe5WtED2EBC5WIaZLuD55cqHJSIfSqcHMV3vBivfIJApkqSDA+18ow2FjQaCYPsPrcyJlhSIGQjEQQIXzaQarXpxGWg1F3ogxHxkPLpNK5OuFMDqJDxMAvzfPyTUxKDIe7JqXRBsSX2MiVjtcRUbL5QKX7MjnrxHCmbBmUeg21XXJaA41gZtb+XmzzDcQvkbQsRDwe6x4PpMOIKg68CRBrpyQvrXhrgw8uwtwYW57z7i6NmvtMAkyXxFSxb8XxbyZRMazHnhMQR4Bm7+93EP4KC0jHJxG1oxx+nTsxSo/X3Tzynau1nkC3XoREjUkeFYOtlooC6MtJmH/YhdYPWaZGqppItaxJ4nvmEgg86l0AyHaAsjS46uX27/tSfcP+cqLzquQ73m3DfI5ux8cIoP/dHr1pbXagM4luXe64dbxmM08Uu2abqQCD4ly6aG8zI1Klgw63jot21AAt4HqRdwBstgu8XDeYvftgbxhLoZZVTcBweJvfIRllIoj8kYkq1NLWtO2kNztGRrqdU66TQevxXmS9XhvfCotdMjOgVK+F5GJpZCGZwZGD7GVuFe9jc55+5KipSx3nhJrR9yjoTerm4ldrriWDD1dtxDt/HPRWNTFI0B/QijjQTmu0ZCZeBzr2HCq70qaprEL3Y/8NLH/UuBnSYPGQ/SkAg==";
+var accessToken = "EwCIA8l6BAAUO9chh8cJscQLmU+LSWpbnr0vmwwAAbTbfAJEZ7rZbs6LFjwNN5rjOhFuMuOqjOcYvO9aBwkOYM4GskoLUuNCyoncNuEhW6ucf2z2+JjCRIx7VkWZj2d3eF6aTWCBxZ7jl3qVkCGmqgK6KFjWSSLZjfCJXizDnVesR8t/feOGNd+OeDfdWMwSCVN34CtU4TDW7P+xfVgVZSbnZBC4jhZZSvKYr25t+AhkfxmnTqffpBl9149V0zxCsulMyZqq4Uf/L9UXL1ZqVbcMb+x1GhRZCF89w/M2zPpNvUVZvAuDSI7JXVapzJ9TlZ5es8I46v2PFyRiuoro1Y7isMR8eaXVBKxLY+PAcuyD3d3Q6c8xW3zFIIzVGEIDZgAACMCzlPefqoV5WAItBOCviZlzLZWT+qQBLJ4gzqjtyMct2CLZFQk4F6DeV6K7rwDgBeSCpIqk+q1UR6KCuDe4roWIvCwg/X57UcyGVdUmawaFw18bTZi+C0px+MlG2o2/lqVpkwrW6udERSSXrVo6NWMd45NGsS+pRSYn34LxU937zx5ZiqxdVl6pT8EEHO0hRgej3tVYwwtcRbT52mNyqKbzS9KNTIR2FMcPk6U0HsSGpDvKVl0mnv98HJxEFZqibO9jC8O6bxqmgOnXDxYWe9rE18yCEDnkJL+6vnucm+8kmpmZ94+fkZLipDYBj5g6khVoK0Ep1DaVQfOybIKSL7pD+DfbnZp3r7dErvB2ZyE2lZzCXg62d7o3Asb5hG8hC1fV5rlc/ajzP1xi3PiPgsEPXilvyhlDwR3S1Ul6XNBQAs4aVzxquVbeqVyV9ueC9XqicWM35kV6TsvHS1h2tvJ9ceXEPZz1033lMTfru7IMEdVEbDuyxtrWXAtkfFwmHnLeueQSlmSEwacaY5tSo5ZksIGORblA2sGAV5UEHPVu6dWZ9sSyY/7tWzBYsvggegASpgmipQPy9zhmgRNWF5USJfKEid01UENvNbgnFC6WF9R2tY6bjL5NgXuVZPXzo3IiptR9Fk7d6AOKbgAIbarkOEc6pv/s1sWXBeugvNobNLvetX263RFj/lF/2bDshv1kUf+bDEfwmfQVTbLClxuBcuJBgg6J3O9oslbReIi5r+xdwD3f+VFiKH3H9jzhaoMdhJYlLwf3L24mCU+OZTaxgCbokjkqHOtYcBq94/J6U6CkAg==";
 
 export default class SearchController extends Controller {
    init() {
       super.init();
 
-     
       var array = [
                    { id:1, text:'Last 7 Days'},
                    { id:2, text:'Last 30 Days'},
@@ -22,6 +21,10 @@ export default class SearchController extends Controller {
                    </cx>)*/}];
 
       this.store.set('$page.user0', array);
+
+      //Custom Date for ....
+      this.store.set("$page.visible.date", false);
+
 
       var myFolders = [];
       var myFiles = [];
@@ -36,7 +39,7 @@ export default class SearchController extends Controller {
       this.store.set('$page.useroptions',users);
 
       this.store.set("$page.pageCount", 5);
-      this.store.set("$page.page1", 1);
+      this.store.set("$page.page", 1);
       this.store.init("$page.pageSize", 10);
 
       var text = this.store.get("$page.modified.text");
@@ -77,12 +80,10 @@ export default class SearchController extends Controller {
          }).then((childrens) => {
           let myItems = childrens.value;
           for(let i=0; i<myItems.length; i++){
-   
             myFolders.push(myItems[i]);
             if(myItems[i].hasOwnProperty('folder')){
                findAll(myItems[i].id)
              }
-             
             myFiles = myFolders.filter(item => item.hasOwnProperty('file'));
             store.set('$page.records', myFiles.map((item,i) => ({
               id: item.id,
@@ -101,15 +102,25 @@ export default class SearchController extends Controller {
       var pageSize = this.store.get('$page.pageSize');
       var page = this.store.get("$page.page1");
       var pageCount = this.store.get("$page.pageCount");
+      var records = this.store.get("$page.records");
 
-      //this.store.set("$page.records", dataset.slice(0,this.store.get('$page.pageSize')));
-      //this.store.set("$page.pageCount", Math.max(pageCount, page + (dataset.length > this.store.get("$page.pageSize") ? 1 : 0)));
+      //NOT Working
+      // this.store.set("$page.records", records.slice(0,pageSize));
+      // this.store.set("$page.pageCount", Math.max(pageCount, page + records.length > pageSize ? 1 : 0));
    
+      // this.addTrigger(
+      //    "page",
+      //    ["$page.pageSize", "$page.sorters"],
+      //    () => {
+      //      this.store.set("$page.page", 1);
+      //    },
+      //    true
+      //  );
 
+      
      
       //User lookupField trigger
       this.addTrigger('tuser',['$page.user.text'], getUsers =>{
-
          if(!this.store.get("$page.user.text")){  
           this.fillGrid();
          }else{
@@ -122,16 +133,7 @@ export default class SearchController extends Controller {
                let child = childrens.value.filter(this.onFilter);
                let user = child[0].createdBy.user.displayName;
                console.log("user: "+ user );
-
-               this.store.set('$page.records', child.map((item, i) => ({
-                  id: item.id,
-                  icon: item.name,
-                  document: item.name,
-                  folder: item.parentReference.path,
-                  user: item.createdBy.user.displayName,
-                  lmodified: moment(item.lastModifiedDateTime).format("YYYY-MM-DD")
-               })).filter(item => item.user === getUsers)
-               );
+             this.gridFilter(child, item => item.user === getUsers);
             }).catch(err => console.error(err));
          }
 
@@ -142,10 +144,8 @@ export default class SearchController extends Controller {
         let text = this.store.get('$page.modified.text');
         var currentDate = moment().format('YYYY-MM-DD');
         console.log(text);
-       
-        let txt = dateTranslate(text);
+        let txt = this.dateTranslate(text);
         console.log("Final " + txt);
-
         if(!txt){
            this.fillGrid();
         }else{
@@ -157,32 +157,20 @@ export default class SearchController extends Controller {
          }).then((childrens) => {
             let child = childrens.value.filter(this.onFilter);
             console.log(child);
-            console.log("dd" + child[0].lastModifiedDateTime);
             console.log("dita " + getDate);
-            console.log(" Jeeez " + (child[5].lastModifiedDateTime >= text))
-            this.store.set('$page.records', child.map((item, i) => ({
-               id: item.id,
-               icon: item.name,
-               document: item.name,
-               folder: item.parentReference.path,
-               user: item.createdBy.user.displayName,
-               lmodified: moment(item.lastModifiedDateTime).format("YYYY-MM-DD")
-            })).filter(x => (x.lmodified >= txt && x.lmodified<= currentDate))
-            );
+            this.gridFilter(child,x => (x.lmodified >= txt && x.lmodified<= currentDate));
          }).catch(err => console.error(err));
         }
-         
-      });
-   
+      }); 
    }
-
-
+   
    onFilter(obj){
       if(obj.hasOwnProperty("file")){
       return obj.name;
       }
     }
 
+    ///Search Button on Click-Search based in description
    onClick() {
        var desc = this.store.get('$page.desc');
       // console.log("Searched: " + desc);
@@ -195,19 +183,11 @@ export default class SearchController extends Controller {
          shared: true,
          user: 'sherifilabinot'
       }).then((childrens) => {
-         let child = childrens.value
-         .filter(this.onFilter)
-         .filter(x => x.name.startsWith(desc.trim()));
+         let child = childrens.value;
          console.log(child);
-         this.store.set('$page.records', child.map((item, i) => ({
-            id: item.id,
-            icon: item.name,
-            document: item.name,
-            folder: item.parentReference.path,
-            user: item.createdBy.user.displayName,
-            lmodified: moment(item.lastModifiedDateTime).format("YYYY-MM-DD")
-         }))
-         );
+         this.gridData(child
+            .filter(this.onFilter)
+            .filter(x => x.name.startsWith(desc.trim())));
       }).catch(err => console.error(err));
    }
    
@@ -223,51 +203,36 @@ export default class SearchController extends Controller {
       }).then((childrens) => {
          let child = childrens.value.filter(this.onFilter);
          console.log(child);
-         this.store.set('$page.records', child.map((item, i) => ({
-            id: item.id,
-            icon: item.name,
-            document: item.name,
-            folder: item.parentReference.path,
-            user: item.createdBy.user.displayName,
-            lmodified: moment(item.lastModifiedDateTime).format("YYYY-MM-DD")
-         }))
-         );
+         this.gridData(child);
       }).catch(err => console.error(err));
    }
-    
-   // findAll(id){
-      
-   //    oneDriveAPI.items.listChildren({
-   //    accessToken: accessToken,
-   //    itemId: id,
-   //    shared: true,
-   //    user: 'sherifilabinot'
-   //    }).then((childrens) => {
-   //     let myItems = childrens.value;
-   //     for(let i=0; i<myItems.length; i++){
 
-   //       myFolders.push(myItems[i]);
-   //       if(myItems[i].hasOwnProperty('folder')){
-   //          this.findAll(myItems[i].id)
-            
-   //        }
-   //       myFiles = myFolders.filter(item => item.hasOwnProperty('file'));
-   //       this.store.set('$page.records', myFiles.map((item,i) => ({
-   //         id: item.id,
-   //         icon: item.name,
-   //         document: item.name,
-   //         folder: item.parentReference.name || 'root',
-   //         user: item.createdBy.user.displayName,
-   //         lmodified: moment(item.lastModifiedDateTime).format("YYYY-MM-DD")
-   //        })));
-   //     }
-      
-   // }).catch(err => console.error(err));     
-   // }
+   //populate the grid
+   gridData(child){
+      this.store.set('$page.records', child.map((item, i) => ({
+         id: item.id,
+         icon: item.name,
+         document: item.name,
+         folder: item.parentReference.path,
+         user: item.createdBy.user.displayName,
+         lmodified: moment(item.lastModifiedDateTime).format("YYYY-MM-DD")
+      }))
+      );
+  }
+   //filter the grid
+  gridFilter(child,item){
+   this.store.set('$page.records', child.map((item, i) => ({
+      id: item.id,
+      icon: item.name,
+      document: item.name,
+      folder: item.parentReference.path,
+      user: item.createdBy.user.displayName,
+      lmodified: moment(item.lastModifiedDateTime).format("YYYY-MM-DD")
+   })).filter(item)
+   );
+  }
 
-}
-
-function dateTranslate(text){
+  dateTranslate(text){
    var sevenDaysAgo = moment().subtract(7, 'day').format('YYYY-MM-DD');
    var thirtyDaysAgo = moment().subtract(30, 'day').format('YYYY-MM-DD');
    var daysAgo180 = moment().subtract(180, 'day').format('YYYY-MM-DD');
@@ -284,11 +249,31 @@ function dateTranslate(text){
           text = daysAgo180;
           break;
        case 'Custom Date':
-          text = moment(new Date()).format('YYYY-MM-DD');//not finished
-          console.log("Date e shh:" + text)
+          this.store.set("$page.visible.date",true);
+          var date = this.store.get("$page.date");
+          this.store.set("$page.modified.text", moment(date).format('YYYY-MM-DD'));
+          
+          if(!date){
+             this.fillGrid();
+             this.store.set("$page.modified.text",'');
+          }else{
+          console.log("DATA custom " + date);
+          var datetext = moment(date).subtract(date, 'day').format('YYYY-MM-DD');
+          text = datetext;
+          console.log("Date e shh:" + text);
+          this.store.set("$page.visible.date", false);
+          this.store.set("$page.date","");
+          }
+          break;
     }
     return text;
 }
+
+
+}
+
+
+
 
       
 
