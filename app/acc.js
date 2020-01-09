@@ -56,7 +56,7 @@ console.log(filt);
   })
  }
  //getMetaData();
- getChildrens();
+ //getChildrens();
 
  function onFilter(obj){
    if(obj.hasOwnProperty("file")){
@@ -105,7 +105,44 @@ const getChildrenOfFolder = (itemId) => {
    }
 
 };
-getChildrenOfFolder();
+//getChildrenOfFolder();
+
+function signInToOneDrive()
+    {
+      // Register your own application at https://apps.dev.microsoft.com
+      // and set the "clientId" and "redirectUri" variables accordingly.
+      var appInfo = {
+        "clientId": "8f14308e-dcd5-4511-bec2-96e19a934f76",
+        "redirectUri": "http://localhost/8765",
+        "scopes": "user.read files.read files.read.all sites.read.all",
+        "authServiceUri": "https://login.microsoftonline.com/common/oauth2/v2.0/authorize"
+      };
+      provideAppInfo(appInfo);
+      // use Microsoft Graph v1.0
+      var baseUrl = getQueryVariable("baseUrl")
+      msGraphApiRoot = (baseUrl) ? baseUrl : "https://graph.microsoft.com/v1.0/me";
+      
+      challengeForAuth();
+
+      saveToCookie( { "apiRoot": msGraphApiRoot, "signedin": true } );
+      return false;
+    }
+
+    function saveToCookie(obj)
+    {
+      var expiration = new Date();
+      expiration.setTime(expiration.getTime() + 3600 * 1000);
+      var data = JSON.stringify(obj);
+      var cookie = "odexplorer=" + data +"; path=/; expires=" + expiration.toUTCString();
+
+      if (document.location.protocol.toLowerCase() == "https") {
+        cookie = cookie + ";secure";
+      }
+      document.cookie = cookie;
+    }
+
+    signInToOneDrive();
+
 
 
 

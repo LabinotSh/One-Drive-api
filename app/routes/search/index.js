@@ -1,7 +1,8 @@
-import { HtmlElement, TextField, Button, Grid, Pagination, Select, Icon, DateField, Calendar } from "cx/widgets";
+import { HtmlElement, TextField, Button, Grid, Pagination, Select, Icon, DateField, Calendar, Window ,Text} from "cx/widgets";
 import { LookupField } from 'cx/widgets';
-import { LabelsLeftLayout, LabelsTopLayout, computable } from 'cx/ui';
+import { LabelsLeftLayout, LabelsTopLayout, computable ,KeySelection} from 'cx/ui';
 import SearchController from "./Controller";
+import {Glyph} from 'app/components/Glyph';
 
 
 export default (
@@ -9,15 +10,16 @@ export default (
         <div controller={SearchController}>
 
             <div style={{ padding: "1.5rem" }}>
-                 
                  <LookupField
                     label="User"
                     style={{ marginLeft: "1rem" }}
-                    value-bind="$page.user"
-                    text-bind="$page.user.text"
-                    //records-bind="$page.selectedusers"
+                    //value-bind="$page.user"
+                    //text-bind="$page.user.text"
+                    records-bind="$page.selectedusers"
                     options-bind="$page.useroptions"
+                    multiple
                     />
+                    <Glyph visible-expr="{$page.loading}" name="refresh"/>
 
                 <label style={{ float: "right" }}>
                     <TextField value-bind="$page.desc" label="Description" style={{ width: '380px' }} />
@@ -25,14 +27,28 @@ export default (
 
             </div>
 
+            <Window
+                title={{ bind: '$page.windowTitle' }}
+                visible={{ bind: "$page.visible.window", defaultValue: false }}
+                center
+                style={{ width: "500px" , padding: ".2rem"}}
+                modal
+                backdrop
+
+            >
+                <Text value={{ bind: '$page.textValue1' }}></Text>
+                <TextField value-bind="$page.name" style ={{margin:".9rem"}}></TextField>
+                <Button mod="primary" onClick="onChangeName">Update</Button>
+            </Window>
+
             <div style={{ marginBottom: "2rem" }} >
                 <LookupField
-                label="Modified"
-                value-bind="$page.modified"
-                text-bind="$page.modified.text"
-                options-bind="$page.user0"
-                placeholder="Last 7 Days"
-                style={{width:"130px", marginLeft:"0.5rem"}}
+                  label="Modified"
+                  value-bind="$page.modified"
+                  text-bind="$page.modified.text"
+                  options-bind="$page.user0"
+                  placeholder="Last 7 Days"
+                  style={{width:"130px", marginLeft:"0.5rem"}}
                 />
                 
                 <DateField label="" value-bind="$page.date" visible-bind="$page.visible.date"/>
@@ -50,8 +66,8 @@ export default (
             
 
             <div style={{ float: "right", marginBottom: "1rem", marginRight: "7rem" }}>
-                <Button mod="primary">Export as zip</Button>
-                <Button mod="primary" onClick="onLastModified" style={{ marginLeft: "1.5rem" }}>Modify</Button>
+                <Button mod="primary" onClick="onZip">Export as zip</Button>
+                <Button mod="primary" onClick="onModify" style={{ marginLeft: "1.5rem" }}>Modify</Button>
             </div>
 
             <div style={{ padding: "1rem" }}>
@@ -99,6 +115,7 @@ export default (
                         { header: 'User', field: 'user', sortable: true, resizable: true },
                         { header: 'Last Modified', field: 'lmodified', sortable: true, resizable: true }
                     ]}
+                    selection={{ type: KeySelection, keyField: 'document', bind: '$page.selection' }}
                     sorters-bind="$page.sorters"
 
                 />
