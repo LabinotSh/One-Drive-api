@@ -52,14 +52,6 @@ export default (
                 />
                 
                 <DateField label="" value-bind="$page.date" visible-bind="$page.visible.date"/>
-                {/* <Calendar value-bind="$page.date" visible-bind="$page.visible.date"/> */}
-                {/* <label>Modified</label>
-                <Select value-bind="$page.users" style={{ marginLeft: "1.2rem", width: "150px" }}>
-                    <option value="7">Last 7 Days</option>
-                    <option value="30">Last 30 Days</option>
-                    <option value="180">Last 180 Days</option>
-                    <option value="custom">Custom Date</option>
-                </Select> */}
 
                 <label style={{ float: "right", marginRight: "10rem" }}><Button mod="primary" style={{ width: "5rem" }} onClick="onClick">Search</Button></label>
             </div>
@@ -74,12 +66,13 @@ export default (
                 <Grid
                     records-bind="$page.records"
                     mod="bordered"
-                    pageSize="10"
+                    pageSize="20"
                     style={{ width: "100%" }}
                     columns={[
                         { header: 'Icon',
                           sortable: true, 
                           field: "icon",
+                          align: "center",
                           items: (
                             <cx>
                                 <i class={computable("$record.icon",
@@ -88,23 +81,23 @@ export default (
                                         console.log(type)
                                         switch (type[1]) {
                                             case 'pdf':
-                                                return "far fa-file-pdf";
+                                                return "far fa-file-pdf fa-lg";
                                             case 'docx':
-                                                return "far fa-file-word";
+                                                return "far fa-file-word fa-lg";
                                             case 'pptx':
-                                                return "far fa-file-powerpoint";
+                                                return "far fa-file-powerpoint fa-lg";
                                             case 'jpg':
-                                                return "far fa-file-image";
+                                                return "far fa-file-image fa-lg";
                                             case 'img':
-                                                return "far fa-file-word";
+                                                return "far fa-file-word fa-lg";
                                             case 'xlsx':
-                                                return "far fa-file-excel";
+                                                return "far fa-file-excel fa-lg";
                                             case 'img':
-                                                return "far fa-file-image";
+                                                return "far fa-file-image fa-lg";
                                             case 'csv':
-                                                return "fas fa-file-csv";
+                                                return "fas fa-file-csv fa-lg";
                                             default:
-                                                return "far fa-file-image";
+                                                return "far fa-file-image fa-lg";
                                         }
                                     })} />
                             </cx>
@@ -120,14 +113,14 @@ export default (
 
                 />
                 {/* <div style={{ marginBottom:"0.5rem" }}> */}
-                <Pagination page-bind="$page.page" pageCount-bind="$page.pageCount" />
+                <Pagination page-bind="$page.page" pageCount-bind="$page.pageCount" style={{margin:".5rem"}} />
 
-                <Select value-bind="$page.pageSize" style={{ float: "right" }}>
+                {/* <Select value-bind="$page.pageSize" style={{ float: "right" }}>
                     <option value="5">5</option>
                     <option value={10}>10</option>
                     <option value="20">20</option>
                     <option value="50">50</option>
-                </Select>
+                </Select> */}
             </div>
 
         </div>

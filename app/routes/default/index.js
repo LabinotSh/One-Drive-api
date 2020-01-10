@@ -10,7 +10,7 @@ export default (
 
            <div putInto="main" onLoad="onLoad()">
             
-                <Tab tab="search" value-bind="$page.tab" mod="classic">Search</Tab>
+                <Tab tab="search" value-bind="$page.tab" mod="classic" disabled-bind="$tab.disable">Search</Tab>
                 <Tab tab="admin" value-bind="$page.tab" mod="classic" default>Admin</Tab>
 
              
